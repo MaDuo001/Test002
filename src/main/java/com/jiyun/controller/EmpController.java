@@ -32,7 +32,7 @@ public class EmpController {
 	public Result saveEmp( Emp emp){
 		 try {
 			 empService.saveEmp(emp);
-			 return new Result(true,"保存成功！");
+			 return new Result(true,"保存成功！！");
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
