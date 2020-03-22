@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+<script type="text/javascript">
+       $(function() {
+		    $.get("findAll.do",function(data){
+		    	var str="<tr><td>员工号</td><td>姓名</td><td>岗位</td><td>年龄</td></tr>"
+		    	$.each(data,function(index,info){
+		    		//console.info(index+"==="+info.ename)
+		    		str+="<tr><td>"+info.empno+"</td><td>"+info.ename+"</td><td>"+info.job+"</td><td>"+info.age+"</td></tr>"
+		    	})
+		    	$("#t_emp").append(str)
+					
+	})
+       })
+  
+</script>
+
+</head>
+<body> 
+     <p>展示员工信息</p>
+      <table id="t_emp" border="1">
+           
+      </table>
+      
+      
+</body>
+</html>

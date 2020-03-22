@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+<script type="text/javascript">
+       $(function() {
+		      $("#btn").click(function(){
+		    	     $.post("saveEmp.do",$("#myform").serialize(),function(data){
+		    	    	    if(data.success){
+								alert(data.message)
+								}else{
+									alert(data.message)
+								}
+		    	     })
+		      })
+       })
+  
+</script>
+
+</head>
+<body> 
+     <p>添加员工信息</p>
+       <form action="" id="myform">
+      <table id="t_emp" border="1">
+         <tr>
+             <td>姓名</td>
+             <td><input type="text" name="ename" value=""></td>
+           </tr>
+           <tr>
+             <td>岗位</td>
+             <td><input type="text" name="job" value=""></td>
+           </tr>
+           <tr>
+             <td>年龄</td>
+             <td><input type="text" name="age" value=""></td>
+           </tr>
+           <tr>
+             <td colspan="2">
+                <input type="button" id="btn" value="保存">
+                <input type="reset" value="重置">
+                
+             </td>
+           </tr>
+      </table>
+      </form>
+      
+</body>
+</html>

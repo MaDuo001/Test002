@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jquery-2.2.1.min.js"></script>
+<script type="text/javascript">
+       $(function() {
+		     $.post("findByparentId",function(data){
+		          var str = ""
+		          $.each(data,function(index,info){
+		                 str+="<option value="+info.id+">"+info.name+"</option>"
+		          })
+		            $("#c1").append(str)
+		     })
+		     
+		     $("#c1").change(function(){
+		    	 $("c2").empty();
+	    	     var cls=$(this).val();
+	    	     $.post("findByparentId?parentId="+cls,function(data){
+			          var str = ""
+			          $.each(data,function(index,info){
+			                 str+="<option value="+info.id+">"+info.name+"</option>"
+			          })
+			            $("#c2").append(str)
+			     })
+		    	 
+		     })
+		     
+		      $("#c2").change(function(){
+		    	 $("c3").empty();
+	    	     var cls=$(this).val();
+	    	     $.post("findByparentId?parentId="+cls,function(data){
+			          var str = ""
+			          $.each(data,function(index,info){
+			                 str+="<option value="+info.id+">"+info.name+"</option>"
+			          })
+			            $("#c3").append(str)
+			     })
+		    	 
+		     })
+		     
+		      $("#c3").change(function(){
+		    	 $("c4").empty();
+	    	     var cls=$(this).val();
+	    	     $.post("findByparentId?parentId="+cls,function(data){
+			          var str = ""
+			          $.each(data,function(index,info){
+			                 str+="<option value="+info.id+">"+info.name+"</option>"
+			          })
+			            $("#c4").append(str)
+			     })
+		    	 
+		     })
+       })
+  
+</script>
+
+</head>
+<body> 
+     <p>四级联动</p>
+       一级列表 <select id="c1">
+            <option>请选择</option> 
+         </select> &nbsp;&nbsp;&nbsp;
+        二级列表 <select id="c2">
+            <option>请选择</option> 
+         </select> &nbsp;&nbsp;&nbsp;
+        三级列表 <select id="c3">
+            <option>请选择</option> 
+         </select> &nbsp;&nbsp;&nbsp;
+	 四级列表 <select id="c4">
+	         <option>请选择</option> 
+	      </select> &nbsp;&nbsp;&nbsp;
+
+</body>
+</html>
